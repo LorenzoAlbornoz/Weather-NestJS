@@ -4,10 +4,11 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-
 import { TypeOrmModule } from '@nestjs/typeorm';
 import config from 'config/config';
 import { RequestsLoggerMiddleware } from './common/middleware/requests-logger.middleware';
+import { WeatherReportModule } from './weather-report/weather-report.module';
+import { AsyncTaskModule } from './async-task/async-task.module';
 
 @Module({
   imports: [
@@ -31,6 +32,9 @@ import { RequestsLoggerMiddleware } from './common/middleware/requests-logger.mi
       }),
     }),
     UserModule,
+    AuthModule,
+    WeatherReportModule,
+    AsyncTaskModule,
     AuthModule,
   ],
   controllers: [AppController],
